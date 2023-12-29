@@ -68,7 +68,7 @@ en siguiente bloque de codigo*/
   border-top: dotted;
   grid-area: recommendedTopRight;
   margin-top: 0px;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 20px 20px 0px;
   border-left: dotted;
 }
 .socialMedia .recommendedTopRight p {
@@ -134,7 +134,7 @@ en siguiente bloque de codigo*/
   border-top: dotted;
   grid-area: recommendedBottom1;
   margin-top: 0px;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 20px 20px 0px;
   border-left: dotted;
 }
 .socialMedia .recommendedBottom1 p {
@@ -200,7 +200,7 @@ en siguiente bloque de codigo*/
   border-top: dotted;
   grid-area: recommendedBottom2;
   margin-top: 0px;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 20px 20px 0px;
   border-left: dotted;
 }
 .socialMedia .recommendedBottom2 p {
@@ -266,7 +266,7 @@ en siguiente bloque de codigo*/
   border-top: dotted;
   grid-area: recommendedBottom3;
   margin-top: 0px;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 20px 20px 0px;
   border-left: dotted;
 }
 .socialMedia .recommendedBottom3 p {
@@ -332,7 +332,7 @@ en siguiente bloque de codigo*/
   border-top: dotted;
   grid-area: recommendedBottom4;
   margin-top: 0px;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 20px 20px 0px;
   border-left: dotted;
 }
 .socialMedia .recommendedBottom4 p {
@@ -616,11 +616,11 @@ body h1 p {
   es de ponerlo al costado y a su derecha el texto introductorio al sitio web*/
 }
 .divimage #introimage {
-  border-radius: 40px;
+  /*border-radius: 40px;
   top: 200px;
-  box-shadow: 10px 10px 24px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 24px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 24px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.75); */
 }
 .divimage #introimage:hover {
   animation-duration: 0.25s;
@@ -706,8 +706,8 @@ body h1 p {
 .socialMedia {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 5fr 5fr;
-  grid-template-areas: "socialMedia recommendedTopRight" "form recommendedTopRight" "recommendedBottom1 recommendedBottom2" "recommendedBottom3 recommendedBottom4";
+  grid-template-rows: 1fr 2fr 2fr 2fr;
+  grid-template-areas: "socialMedia comentarios" "form comentarios" "recommendedBottom1 recommendedTopRight" "recommendedBottom3 recommendedBottom4";
   margin-left: 20px;
   margin-top: 20px;
   grid-gap: 0;
@@ -797,31 +797,41 @@ body h1 p {
   border-radius: 3px;
   border-width: thick;
 }
-.socialMedia .sectionForm form h2 {
-  margin-top: 80px;
+.socialMedia .comentarios {
+  grid-area: comentarios;
+}
+.socialMedia .comentarios h2 {
+  position: absolute;
+  margin-top: 20px;
   font-style: italic;
 }
-.socialMedia .sectionForm form ul li {
-  margin-top: 15px;
+.socialMedia .comentarios ul {
+  padding-top: 80px;
 }
-.socialMedia .sectionForm form ul li a {
+.socialMedia .comentarios ul li {
+  margin-bottom: 10px;
+}
+.socialMedia .comentarios ul li a {
   color: rgb(71, 29, 29);
   font-weight: 750;
   margin-left: 20px;
 }
+.socialMedia .comentarios p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -70%;
+  font-weight: bold;
+}
 .socialMedia .recommendedTopRight {
   margin-top: 0px;
-  border-top: none;
 }
 .socialMedia .recommendedTopRight p {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: justify;
 }
 .socialMedia .recommendedTopRight h3 {
   top: 2%; /*Para que se ubique un poco mejor*/
-}
-.socialMedia .recommendedTopRight .carousel {
-  top: 2%; /*Para que se ubique un poco mejor respecto a los bordes del grid*/
 }
 .socialMedia .recommendedBottom1 {
   border-left: none;
@@ -1035,6 +1045,9 @@ body h1 p {
   }
   body .socialMedia .recommendedBottom4 {
     border-left: none;
+  }
+  body .socialMedia .comentarios p {
+    display: none;
   }
   body #navbarBurger {
     position: sticky;

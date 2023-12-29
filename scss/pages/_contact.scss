@@ -2,11 +2,11 @@
 .socialMedia {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 5fr 5fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
     grid-template-areas:
-    "socialMedia recommendedTopRight"
-    "form recommendedTopRight"
-    "recommendedBottom1 recommendedBottom2"
+    "socialMedia comentarios"
+    "form comentarios"
+    "recommendedBottom1 recommendedTopRight"
     "recommendedBottom3 recommendedBottom4";
     margin-left: 20px;
     margin-top: 20px;
@@ -94,34 +94,42 @@
                 border-width: thick;
                 }
             }
-            h2{
-                margin-top: 80px;
-                font-style: italic;
-            }
-            ul{
-                li{
-                    margin-top: 15px;
-                    a{
-                        color: $colorFooter;
-                        font-weight: 750;
-                        margin-left: 20px;
-                    }
+        }
+    }
+    .comentarios{
+        grid-area: comentarios;
+        h2{
+            position: absolute;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        ul{
+            padding-top: 80px;
+            li{
+                margin-bottom: 10px;
+                a{
+                    color: $colorFooter;
+                    font-weight: 750;
+                    margin-left: 20px;
                 }
             }
+        }
+        p{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: -70%;
+            font-weight:bold;
         }
     }
     .recommendedTopRight{
         margin-top: 0px;
-        border-top: none;
         p{
-            margin-top: 20px;
+            margin-top: 10px;
             text-align: justify;
         }
         h3{
             top: 2%; /*Para que se ubique un poco mejor*/
-        }
-        .carousel{
-            top: 2%; /*Para que se ubique un poco mejor respecto a los bordes del grid*/
         }
     }
     .recommendedBottom1{

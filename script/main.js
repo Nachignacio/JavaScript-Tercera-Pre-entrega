@@ -2,7 +2,8 @@ let formulario = document.querySelector("#formulario");
 let listaComentarios = [];
 const listaComentariosHTML = document.querySelector(".listaComentarios");
 
-
+formulario.addEventListener("submit",agregarComentario);
+listaComentariosHTML.addEventListener("click",borrarComentario);
 
 function agregarComentario(evt){
     evt.preventDefault();
@@ -11,19 +12,13 @@ function agregarComentario(evt){
         alert("Agregar comentario");
         return;
     }
-
-
     let cadaComentario = {
         id: Date.now(),
         texto: comentario,
     };  
-
     listaComentarios.push(cadaComentario);
-
     formulario.reset();
-
     console.log(listaComentarios);
-
     crearHTML();
 }
 
@@ -42,7 +37,7 @@ function crearHTML(){
     sincroStorage();
 }
 
-function limpiarLista(){
+function limpiarLista(){ /*Limpia la lista listaComentariosHTML para que no repita comentarios al postear */
     while(listaComentariosHTML.firstChild){
         listaComentariosHTML.removeChild(listaComentariosHTML.firstChild);
     }
@@ -55,8 +50,8 @@ function borrarComentario(evt){
     crearHTML();
 }   
 
-window.addEventListener("DOMContentLoaded",() =>{
-    listaComentarios = JSON.parse(localStorage.getItem("listaComentarios")) || [];
+window.addEventListener("DOMContentLoaded",() =>{ /*Esto es para que cargue los comentarios del Local Storage, si es que hay alguno*/ 
+    listaComentarios = JSON.parse(localStorage.getItem("listaComentarios")) || []; /*El || [] le da la opcion de que cargue cero comentarios si no hay nada en Local Storage */
     crearHTML();
 })
 
@@ -64,7 +59,6 @@ function sincroStorage(){
     localStorage.setItem("listaComentarios",JSON.stringify(listaComentarios));
 }
 
-formulario.addEventListener("submit",agregarComentario);
-listaComentariosHTML.addEventListener("click",borrarComentario);
+
 
 
